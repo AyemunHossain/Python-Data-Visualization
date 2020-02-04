@@ -1,3 +1,8 @@
+#;==========================================
+#; Title:  Customizing plots property part 1
+#; Author: @AyemunHossain
+#;==========================================
+
 import matplotlib.pyplot as plt
 import numpy as np
 
