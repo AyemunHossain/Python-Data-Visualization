@@ -1,3 +1,8 @@
+#;==========================================
+#; Title:  Sinx ,Cosx and Tan curves 2
+#; Author: @AyemunHossain
+#;==========================================
+
 import matplotlib.pyplot as plt
 import numpy as np
 import math
