@@ -1,3 +1,8 @@
+#;====================================
+#; Title:  Matplotlib Histogram part 2
+#; Author: @AyemunHossain
+#;====================================
+
 import matplotlib.pyplot as plt
 import numpy as np
 import math

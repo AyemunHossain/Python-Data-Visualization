@@ -1,7 +1,7 @@
-#;==========================================
-#; Title:  Figure and Axes part  
+#;===================================
+#; Title:  Figure and Axes part 1
 #; Author: @AyemunHossain
-#;==========================================
+#;=====================================
 
 import matplotlib.pyplot as plt
 import numpy as np
