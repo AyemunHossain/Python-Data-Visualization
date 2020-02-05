@@ -1,5 +1,5 @@
 #;==========================================
-#; Title:  Figure and Axes part 1.py
+#; Title:  Figure and Axes part  
 #; Author: @AyemunHossain
 #;==========================================
 
