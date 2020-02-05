@@ -48,7 +48,7 @@ with open('facebook.csv') as csv_file:
 
     ax.plot_date(datep, closep, '-',color='k', label='Price', linewidth=0.8)
     ax.plot([],[],'-',color='g',label='Profit',linewidth=5)
-    ax.plot([], [], '-',color='r', label='Profit', linewidth=5)
+    ax.plot([], [], '-',color='r', label='Loss', linewidth=5)
 
     ax.fill_between(datep,closep,closep[0],where=(closep > closep[0]),facecolor='green',alpha=0.5)
     ax.fill_between(datep, closep, closep[0], where=(closep < closep[0]), facecolor='red')

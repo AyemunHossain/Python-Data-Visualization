@@ -1,7 +1,4 @@
-#;==========================================
-#; Title:  Amazon Stock Price
-#; Author: @AyemunHossain
-#;==========================================
+#Example : 1
 
 import matplotlib.pyplot as plt
 import  numpy as np
@@ -9,7 +6,7 @@ from datetime import  datetime
 import matplotlib.dates as mdates
 
 
-#.........................>>> Decoding byte string and formating date <<<......................#
+
 def bytespdate2num(fmt,encoding='utf-8'):
     def decode(b):
         decoded=b.decode(encoding)
@@ -17,11 +14,10 @@ def bytespdate2num(fmt,encoding='utf-8'):
     return decode
 
 
-
 with open('amazon.csv') as csv_file:
 
     fig = plt.figure()
-    ax=fig.add_axes([0.1,0.15,0.8,0.75])
+    ax=fig.add_axes([0.1,0.1,0.8,0.9])
 
     csv_data = csv_file.read()
 
@@ -38,25 +34,39 @@ with open('amazon.csv') as csv_file:
             else:
                 stock_list.append(line)
 
+
     datep, openp, highp, lowp, closep, volume = np.loadtxt(stock_list,
                                                             delimiter=',',
                                                             unpack=True,
-                                                            converters={0: bytespdate2num('%Y-%m-%d')}
-                                                            )
+                                                            converters={0: bytespdate2num('%Y-%m-%d')})
 
 
-    ax.plot_date(datep, closep, '-',color='k', label='Price', linewidth=0.8)
+    ax.plot_date(datep, closep,'-',color='k', label='Price', linewidth=0.8)
     ax.plot([],[],'-',color='g',label='Profit',linewidth=5)
-    ax.plot([], [], '-',color='r', label='Loss', linewidth=5)
+    ax.plot([], [], '-',color='r', label='Profit', linewidth=5)
+
+    #Adding a vertical line to the grid in a specific intersted value :
+    ax.axvline(datep[0],color='r')
+    # Adding a horizontal line to the grid in a specific intersted value :
+    ax.axhline(closep[0], color='r')
+
 
     ax.fill_between(datep,closep,closep[0],where=(closep > closep[0]),facecolor='green',alpha=0.5)
     ax.fill_between(datep, closep, closep[0], where=(closep < closep[0]), facecolor='red')
 
     for label in ax.xaxis.get_ticklabels():
         label.set_rotation(30)
+
     plt.grid(True)
     plt.xlabel('Date')
     plt.ylabel('Price')
-    plt.title('Amazon Stock price History\nCheck it out')
+    plt.title('Interesting Graph\nCheck it out')
     plt.legend()
+
+
+    #all tick and grid value can changeable :
+
+    plt.tick_params(axis='both',grid_color='r',grid_alpha=0.05,direction='in')
+    # now we will customize our subplot like we customize in the time of add_axes([])
+    plt.subplots_adjust(left=0.1, bottom=0.13, right=0.99, top=0.89)
     plt.show()
